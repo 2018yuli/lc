@@ -36,7 +36,7 @@ class Solution {
         // while (!stack.isEmpty()) {
         // 	result.next = stack.pop();
         // 	result = result.next;
-        // 	if (next != result) {        		
+        // 	if (next != result) {
         // 		result.next = next;
         // 		next = next.next;
         // 		result = result.next;
