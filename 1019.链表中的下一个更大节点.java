@@ -46,6 +46,7 @@ class Solution {
         // return result;
 
         // Solution from Nick White
+        // 不使用 ListNode + stack + index 而使用 ArrayList + stack 提升代码可读性
         ArrayList<Integer> nodeVals = new ArrayList<Integer>();
 
         ListNode currentNode = head;
