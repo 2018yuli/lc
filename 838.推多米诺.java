@@ -25,7 +25,7 @@ class Solution {
         // return new String(dominoesArr);
 
         // Solution from Nick White
-        // maked a index named fources
+        // maked an index named fources
         char[] dominoesArr = dominoes.toCharArray();
         int n = dominoesArr.length;
         int[] fources = new int[n];
