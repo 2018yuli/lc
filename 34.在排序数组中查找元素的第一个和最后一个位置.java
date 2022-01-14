@@ -37,6 +37,7 @@ class Solution {
 
         // Solution from Nick White
         int[] result = new int[2];
+        // 已有的算法，二分法，可再分，所以拆分为两个函数
         result[0] = findStartIndex(nums, target);
         result[1] = findEndIndex(nums, target);
         return result;
