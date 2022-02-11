@@ -32,8 +32,10 @@ class Solution {
         for (int i = 0 ; i < words.length ; i++) {
             char currentChar = pattern.charAt(i);
             if (map.containsKey(currentChar)) {
+                // <a, dog> <a, cat>
                 if (!map.get(currentChar).equals(words[i])) return false;
             } else {
+                // <a, dog> <b, dog>
                 if (map.containsValue(words[i])) return false;
                 map.put(currentChar, words[i]);
             }
