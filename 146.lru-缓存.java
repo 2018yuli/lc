@@ -7,15 +7,13 @@
 // @lc code=start
 class LRUCache {
 
-    // mine
+    // mine 超时
     // Queue<Integer> cache = new LinkedList<Integer>();
 	// Map<Integer, Integer> cacheContent = new HashMap<Integer, Integer>();
     // int capacity = 0;
-    // int currentSize = 0;
 
     // public LRUCache(int capacity) {
     //     this.capacity = capacity;
-    //     this.currentSize = 0;
     // }
     
     // public int get(int key) {
@@ -28,18 +26,17 @@ class LRUCache {
     // }
     
     // public void put(int key, int value) {
-    // 	cacheContent.put(key, value);
     //     if (cache.contains(key)) {
     //     	cache.remove(key);
+    //         cache.add(key);
     //     } else {
-    //     	currentSize++;
+    //     	if (cacheContent.size() >= capacity) {
+    //             Integer head = cache.poll();
+    //             cacheContent.remove(head);
+    //         }
+    //         cache.add(key);
     //     }
-    //     cache.add(key);
-    //     if (currentSize > capacity) {
-    //         Integer head = cache.poll();
-    //         cacheContent.remove(head);
-    //     }
-
+    //     cacheContent.put(key, value);
     // }
 
     // solution from Nick White
