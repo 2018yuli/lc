@@ -92,54 +92,69 @@ class Solution {
         //    1
         //    1
         //    1
-       return score(s);
+       // return score(s);
+
+       // Solution from Nick White
+       // 将二维的 （ 和 ） 编码为高维度的 0,1,2,...
+       Stack<Integer> stack = new Stack<>();
+       int score = 0;
+
+       for (char c : s.toCharArray()) {
+        if (c == '(') {
+            stack.push(score);
+            score = 0;
+        } else {
+            score = stack.pop() + Math.max(score * 2, 1);
+        }
+       }
+       return score;
     }
 
-    private int score(String s) {
-        List<Integer> separator = new ArrayList<>();
+    // private int score(String s) {
+    //     List<Integer> separator = new ArrayList<>();
         
-        int level = 0;
-        for (int i = 0 ; i < s.length() ; i++) {
-            char c = s.charAt(i);
-            if (c == '(') {
-                level++;
-            }
-            if (c == ')') {
-                level--;
-            }
-            if (level == 0) {
-            	if (i == 0) continue;
-            	if (i == s.length() - 1 && separator.isEmpty()) continue;
-                separator.add(i);
-            }
-        }
+    //     int level = 0;
+    //     for (int i = 0 ; i < s.length() ; i++) {
+    //         char c = s.charAt(i);
+    //         if (c == '(') {
+    //             level++;
+    //         }
+    //         if (c == ')') {
+    //             level--;
+    //         }
+    //         if (level == 0) {
+    //         	if (i == 0) continue;
+    //         	if (i == s.length() - 1 && separator.isEmpty()) continue;
+    //             separator.add(i);
+    //         }
+    //     }
         
-        if (separator.isEmpty()) {
-        	if (s.equals("()")) {
-                return 1;
-            }
-            else if (s.startsWith("((") && s.endsWith("))")) {
-                return 2* scoreOfParentheses(s.substring(1, s.length() - 1));
-            }
-            else if (s.startsWith("()")) {
-                return 1 + scoreOfParentheses(s.substring(2));
-            }
-            else if (s.endsWith("()")) {
-                return 1 + scoreOfParentheses(s.substring(0, s.length() - 2));
-            } else {
-            	return 0;
-            }
-        }
-        else {
-            int sum = 0;
-            int prev = 0;
-            for (int i : separator) {
-                sum += scoreOfParentheses(s.substring(prev, i + 1));
-                prev = i + 1;
-            }
-            return sum;
-        }
-    }
+    //     if (separator.isEmpty()) {
+    //     	if (s.equals("()")) {
+    //             return 1;
+    //         }
+    //         else if (s.startsWith("((") && s.endsWith("))")) {
+    //             return 2* scoreOfParentheses(s.substring(1, s.length() - 1));
+    //         }
+    //         else if (s.startsWith("()")) {
+    //             return 1 + scoreOfParentheses(s.substring(2));
+    //         }
+    //         else if (s.endsWith("()")) {
+    //             return 1 + scoreOfParentheses(s.substring(0, s.length() - 2));
+    //         } else {
+    //         	return 0;
+    //         }
+    //     }
+    //     else {
+    //         int sum = 0;
+    //         int prev = 0;
+    //         for (int i : separator) {
+    //             sum += scoreOfParentheses(s.substring(prev, i + 1));
+    //             prev = i + 1;
+    //         }
+    //         return sum;
+    //     }
+    // }
 }
 // @lc code=end
 
